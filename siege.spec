@@ -8,7 +8,6 @@ URL:		http://www.joedog.org/JoeDog/Siege/
 Source0:	ftp://ftp.joedog.org/pub/siege/siege-%{version}.tar.gz
 Patch0:		siege-2.65-makefile.patch
 BuildRequires:	openssl-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 Siege is an http regression testing and benchmarking utility. 
