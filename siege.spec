@@ -4,6 +4,7 @@ Version:	2.66
 Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.joedog.org/JoeDog/Siege/
 Source0:	ftp://ftp.joedog.org/pub/siege/siege-%{version}.tar.gz
 Patch0:		siege-2.65-makefile.patch
