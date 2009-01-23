@@ -1,3 +1,5 @@
+%define Werror_cflags %nil
+
 Summary:	HTTP regression testing and benchmarking utility
 Name:		siege
 Version:	2.67
