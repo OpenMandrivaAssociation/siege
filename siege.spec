@@ -1,7 +1,7 @@
 Summary:	HTTP regression testing and benchmarking utility
 Name:		siege
-Version:	2.66
-Release:	%mkrel 4
+Version:	2.67
+Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -11,11 +11,11 @@ Patch0:		siege-2.65-makefile.patch
 BuildRequires:	openssl-devel
 
 %description
-Siege is an http regression testing and benchmarking utility. 
-It was designed to let web developers measure the performance of their code 
-under duress, to see how it will stand up to load on the internet. 
-Siege supports basic authentication, cookies, HTTP and HTTPS protocols. 
-It allows the user hit a web server with a configurable number of concurrent 
+Siege is an http regression testing and benchmarking utility.
+It was designed to let web developers measure the performance of their code
+under duress, to see how it will stand up to load on the internet.
+Siege supports basic authentication, cookies, HTTP and HTTPS protocols.
+It allows the user hit a web server with a configurable number of concurrent
 simulated users. Those users place the webserver "under siege."
 
 %prep
