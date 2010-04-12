@@ -3,7 +3,7 @@
 Summary:	HTTP regression testing and benchmarking utility
 Name:		siege
 Version:	2.67
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		System/Servers
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
