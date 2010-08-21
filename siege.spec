@@ -2,14 +2,14 @@
 
 Summary:	HTTP regression testing and benchmarking utility
 Name:		siege
-Version:	2.67
-Release:	%mkrel 3
+Version:	2.70
+Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.joedog.org/JoeDog/Siege/
 Source0:	ftp://ftp.joedog.org/pub/siege/siege-%{version}.tar.gz
-Patch0:		siege-2.65-makefile.patch
+Patch0:		siege-2.70-makefile.patch
 BuildRequires:	openssl-devel
 
 %description
@@ -21,7 +21,6 @@ It allows the user hit a web server with a configurable number of concurrent
 simulated users. Those users place the webserver "under siege."
 
 %prep
-
 %setup -q
 %patch0 -p1 -b .good
 
@@ -43,6 +42,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,0755)
 %doc AUTHORS ChangeLog COPYING KNOWNBUGS MACHINES NEWS PLATFORM README*
 %config(noreplace) %{_sysconfdir}/urls.txt
+%config(noreplace) %{_sysconfdir}/siegerc
 %{_bindir}/bombardment
 %{_bindir}/siege
 %{_bindir}/siege.config
