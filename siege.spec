@@ -1,21 +1,19 @@
-%define Werror_cflags %nil
-
 Summary:	HTTP regression testing and benchmarking utility
 Name:		siege
-Version:	2.70
+Version:	2.72
 Release:	%mkrel 1
-License:	GPL
+License:	GPLv2+
 Group:		System/Servers
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.joedog.org/JoeDog/Siege/
-Source0:	ftp://ftp.joedog.org/pub/siege/siege-%{version}.tar.gz
+Source0:	ftp://ftp.joedog.org/pub/siege/%{name}-%{version}.tar.gz
 Patch0:		siege-2.70-makefile.patch
+Patch1:		siege-2.72-mdv-format-security.patch
 BuildRequires:	openssl-devel
 
 %description
-Siege is an http regression testing and benchmarking utility.
+Siege is an HTTP regression testing and benchmarking utility.
 It was designed to let web developers measure the performance of their code
-under duress, to see how it will stand up to load on the internet.
+under duress, to see how it will stand up to load on the Internet.
 Siege supports basic authentication, cookies, HTTP and HTTPS protocols.
 It allows the user hit a web server with a configurable number of concurrent
 simulated users. Those users place the webserver "under siege."
@@ -23,20 +21,17 @@ simulated users. Those users place the webserver "under siege."
 %prep
 %setup -q
 %patch0 -p1 -b .good
+%patch1 -p1 -b .format
 
 %build
 %configure2_5x
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 install -d %{buildroot}%{_sysconfdir}
 install -m0644 doc/urls.txt %{buildroot}%{_sysconfdir}/urls.txt
-
-%clean
-rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,0755)
