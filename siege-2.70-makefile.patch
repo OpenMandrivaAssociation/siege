@@ -1,0 +1,60 @@
+--- siege-2.70/doc/Makefile.in.orig	2007-07-02 03:21:12.000000000 -0300
++++ siege-2.70/doc/Makefile.in	2007-07-02 03:22:55.000000000 -0300
+@@ -91,7 +91,7 @@
+ EXEEXT = @EXEEXT@
+ F77 = @F77@
+ FFLAGS = @FFLAGS@
+-INSTALL_DATA = @INSTALL_DATA@
++INSTALL_DATA = @INSTALL_DATA@ -D
+ INSTALL_PROGRAM = @INSTALL_PROGRAM@
+ INSTALL_SCRIPT = @INSTALL_SCRIPT@
+ INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+@@ -190,8 +190,8 @@
+ siegerc.in
+ 
+ DISTCLEANFILES = siegerc $(man_MANS)
+-SIEGERC = $(sysconfdir)/siegerc
+-URLSTXT = $(sysconfdir)/urls.txt
++SIEGERC = $(DESTDIR)$(sysconfdir)/siegerc
++URLSTXT = $(DESTDIR)$(sysconfdir)/urls.txt
+ all: all-am
+ 
+ .SUFFIXES:
+@@ -514,16 +514,16 @@
+ 	else \
+ 	  $(INSTALL_DATA) $(srcdir)/siegerc $(SIEGERC); \
+ 	fi 
+-	@if test -f $(URLSTXT); then \
+-	  if cmp -s $(srcdir)/siegerc $(URLSTXT); then echo ""; \
+-	    else \
+-	    echo "WARNING: File $(URLSTXT) already exists."; \
+-	    echo "         It was NOT replaced with this installation."; \
+-	  fi; \
+-	else \
+-	  $(mkinstalldirs) $(sysconfdir); \
+-	  $(INSTALL_DATA) $(srcdir)/urls.txt $(URLSTXT); \
+-	fi 
++	#@if test -f $(URLSTXT); then \
++	#  if cmp -s $(srcdir)/siegerc $(URLSTXT); then echo ""; \
++	#    else \
++	#    echo "WARNING: File $(URLSTXT) already exists."; \
++	#    echo "         It was NOT replaced with this installation."; \
++	#  fi; \
++	#else \
++	#  $(mkinstalldirs) $(sysconfdir); \
++	#  $(INSTALL_DATA) $(srcdir)/urls.txt $(URLSTXT); \
++	#fi 
+ 
+ uninstall:
+ 	rm -f $(SIEGERC)
+--- siege-2.70/src/Makefile.in.good	2010-08-21 07:32:24.000000000 +0200
++++ siege-2.70/src/Makefile.in	2010-08-21 07:32:33.000000000 +0200
+@@ -112,7 +112,7 @@
+ INSTALL_PROGRAM = @INSTALL_PROGRAM@
+ INSTALL_SCRIPT = @INSTALL_SCRIPT@
+ INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+-LDFLAGS = $(SSL_LDFLAGS) $(PTHREAD_LDFLAGS)  
++LDFLAGS += $(SSL_LDFLAGS) $(PTHREAD_LDFLAGS)  
+ LDL = @LDL@
+ LIBOBJS = @LIBOBJS@
+ LIBS = $(SSL_LIBS) 
