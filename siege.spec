@@ -6,8 +6,6 @@ License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.joedog.org/JoeDog/Siege/
 Source0:	ftp://ftp.joedog.org/pub/siege/%{name}-%{version}.tar.gz
-Patch0:		siege-2.70-makefile.patch
-Patch1:		siege-2.72-mdv-format-security.patch
 BuildRequires:	openssl-devel
 
 %description
