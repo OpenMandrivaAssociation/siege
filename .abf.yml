@@ -1,2 +1,4 @@
+removed_sources:
+  siege-2.72.tar.gz: 286e7c1b30a38d3868b743eedd87058a6ad658a2
 sources:
-  "siege-2.72.tar.gz": 286e7c1b30a38d3868b743eedd87058a6ad658a2
+  siege-3.0.0.tar.gz: a044679fbe4a58b027a50735f6a4b2c12f6d2f2a
