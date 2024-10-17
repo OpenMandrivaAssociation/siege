@@ -4,7 +4,7 @@ Version:	3.0.0
 Release:	2
 License:	GPLv2+
 Group:		System/Servers
-URL:		http://www.joedog.org/JoeDog/Siege/
+URL:		https://www.joedog.org/JoeDog/Siege/
 Source0:	ftp://ftp.joedog.org/pub/siege/%{name}-%{version}.tar.gz
 BuildRequires:	openssl-devel
 
